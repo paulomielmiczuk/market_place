@@ -38,6 +38,7 @@ class PlacesController < ApplicationController
       render :edit
     end
   end
+
   private
 
   def place_params
