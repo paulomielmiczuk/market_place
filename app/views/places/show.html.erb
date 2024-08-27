@@ -7,3 +7,4 @@
 <p>Rating: <%= @place.rating %></p>
 
 <%= link_to 'Back', places_path %>
+<%= link_to "Remove place", place_path(@place), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
