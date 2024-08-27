@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.all
+  end
+
   def new
     @place = Place.find(params[:place_id])
     @booking = Booking.new
@@ -11,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = true
     if @booking.save
-      redirect_to root_path # Aqui é bom alterar
+      redirect_to bookings_path
     else
       render 'new', status: :unprocessable_entity
     end
