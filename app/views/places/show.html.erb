@@ -1,10 +1,9 @@
-<h1>Places</h1>
+<h1><%= @place.name %></h1>
 
-<p>Name: <%= @place.name %></p>
 <p>Location: <%= @place.location %></p>
 <p>Description: <%= @place.description %></p>
 <p>Price: <%= @place.price %></p>
-<p>Host: <%= @place.user %></p>
+<p>Host: <%= @place.user.email %></p>
 <p>Rating: <%= @place.rating %></p>
 
 <%= link_to 'Back', places_path %>

@@ -1,11 +1,9 @@
-<%= simple_form_for @place do |f| %>
   <h2>New Place</h2>
-
+<%= simple_form_for @place do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
   <%= f.input :description, as: :text %>
   <%= f.input :price, as: :float  %>
-
   <%= f.button :submit, "Create Place" %>
 <% end %>
 
