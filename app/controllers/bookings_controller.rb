@@ -25,6 +25,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user: current_user)
   end
 
+  def update
+    @booking = Booking.find(params[:place_id])
+  end
+
   private
 
   def booking_params

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/places/:id", to: "places#show", as: "place"
 
   get "/bookings", to: "bookings#index", as: "bookings"
+  patch "/bookings/:id", to: "bookings#update", as: "bookings_confirm_requests"
 
   # Defines the root path route ("/")
   # root "posts#index"
@@ -20,5 +21,5 @@ Rails.application.routes.draw do
   end
 
   get "/requests", to: "bookings#requests", as: "requests"
-  
+
 end
