@@ -1,0 +1,17 @@
+<h1>Bookings</h1>
+
+<% if @bookings.any? %>
+  <% @bookings.each do |booking| %>
+    <div>
+      <p>Booking #<%= booking.id %>:</p>
+      <p>Check-in: <%= booking.checkin %></p>
+      <p>Check-out: <%= booking.checkout %></p>
+      <p>Created on <%= booking.created_at.strftime('%B %d, %Y') %>
+    </div>
+  <% end %>
+<% else %>
+  <p>No bookings found.</p>
+<% end %>
+
+
+<%= link_to 'Book another place', places_path %>
