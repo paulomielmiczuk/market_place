@@ -1,0 +1,11 @@
+
+<%= simple_form_for @place do |f| %>
+  <h1>Edit Place</h1>
+  <%= f.input :name %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :location %>
+  <%= f.input :price, as: :float %>
+  <%= f.button :submit, 'Confirm' %>
+<% end %>
+
+<p><%= link_to "My Places", places_path %></p>

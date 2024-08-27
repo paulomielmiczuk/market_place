@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post "/places", to: "places#create", as: "places"
   get "/places/new", to: "places#new", as: "new_place"
   get "/places/:id", to: "places#show", as: "place"
+  get "/my_places", to: "places#my_places", as: "my_places"
+  get "/places/:id/edit", to: "places#edit", as: "place_edit"
+  patch "/places/:id", to: "places#update", as: "place_update"
 
   get "/bookings", to: "bookings#index", as: "bookings"
 
