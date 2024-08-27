@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   resources :places do
     resources :bookings, only: %i[new create]
   end
+
+  get "/requests", to: "bookings#requests", as: "requests"
+  
 end
