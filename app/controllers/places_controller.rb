@@ -10,10 +10,16 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     if @place.save
-      redirect_to_place_path(@place)
+      redirect_to place_path(@place)
     else
       render :new
     end
+  end
+
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy!
+    redirect_to places_path
   end
 
   private
