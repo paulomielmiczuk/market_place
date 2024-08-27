@@ -1,0 +1,13 @@
+<h1>All places</h1>
+
+<% if @places.any? %>
+  <% @places.each do |place| %>
+    <p>Name: <%= place.name %></p>
+    <p>Location: <%= place.location %></p>
+    <p>Description: <%= place.description %></p>
+    <p>Price: <%= place.price %></p>
+    <p>Rating: <%= place.rating %></p>
+  <% end %>
+<% else %>
+  <p>Sorry, no places found!</p>
+<% end %>
