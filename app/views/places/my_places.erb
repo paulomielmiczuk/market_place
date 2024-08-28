@@ -1,0 +1,24 @@
+<h1>My Places</h1>
+<div class="flexbox">
+  <% if @my_places.any? %>
+    <% @my_places.each do |place| %>
+      <div>
+        <div class="card-trip">
+         <%= cl_image_tag(place.photo.key, crop: :fill) %>
+         <div class="card-trip-infos">
+            <div>
+             <h2><%= place.name %></h2>
+             <p>Description: <%= place.description %></p>
+             <p>Location: <%= place.location %></p>
+            </div>
+            <h2 class="card-trip-pricing">$<%= place.price %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No places found.</p>
+  <% end %>
+</div >
+
+<p><%= link_to "All places", places_path %></p>

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   resources :bookings, only: %i[update request destroy]
   get "/requests", to: "bookings#requests", as: "requests"
+  get "/my_places", to: "places#my_places", as: "my_places"
 end

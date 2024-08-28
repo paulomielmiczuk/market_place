@@ -24,10 +24,6 @@ class PlacesController < ApplicationController
     end
   end
 
-  def my_places
-    @places = Place.all
-  end
-
   def edit
     @place = Place.find(params[:id])
   end
@@ -45,6 +41,10 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @place.destroy!
     redirect_to places_path
+  end
+
+  def my_places
+    @my_places = Place.where(user: current_user)
   end
 
   private
