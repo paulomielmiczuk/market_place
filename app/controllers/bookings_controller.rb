@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[update]
   def index
     @bookings = Booking.all
   end
@@ -26,12 +27,21 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:place_id])
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      render json: { status: 'success' }, status: :ok
+    else
+      render json: { status: 'error' }, status: :unprocessable_entity
+    end
   end
 
   private
 
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
   def booking_params
-    params.require(:booking).permit(:checkin, :checkout)
+    params.require(:booking).permit(:checkin, :checkout, :status)
   end
 end

@@ -38,3 +38,9 @@ Place.create!(name: "casa no Guarujá", location: "Guarujá", description: "bom"
 Place.create!(name: "casa em SP", location: "SP", description: "ótimo", price: 100, rating: 4.3, user: user6)
 
 puts "places created"
+
+puts "creating bookings..."
+
+Booking.create!()
+
+puts "bookings created"

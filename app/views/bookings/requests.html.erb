@@ -2,13 +2,19 @@
 
 <% if @bookings.any? %>
   <% @bookings.each do |booking| %>
-    <div>
-      <p>Booking #<%= booking.id %>:</p>
-      <p>Check-in: <%= booking.checkin %></p>
-      <p>Check-out: <%= booking.checkout %></p>
-      <p>Created on <%= booking.created_at.strftime('%B %d, %Y') %>
-    </div>
+  <div data-controller="toggle_controller" data-booking-url="<%= booking_path(toggle_controller) %>">
+    <p>Place: <%= booking.place.name %></p>
+    <p>User: <%= booking.user.email %></p>
+    <p>Check-in: <%= booking.checkin %></p>
+    <p>Check-out: <%= booking.checkout %></p>
+
+      <div data-booking-target="status">
+        <button data-action="click->booking#update" class="btn btn-primary">
+          Confirm Booking
+        </button>
+      </div>
+  </div>
   <% end %>
-<% else %>
-  <p>No bookings found.</p>
 <% end %>
+
+<!-- app/views/bookings/requests.html.erb -->
