@@ -6,12 +6,11 @@
       <p>Booking #<%= booking.id %>:</p>
       <p>Check-in: <%= booking.checkin %></p>
       <p>Check-out: <%= booking.checkout %></p>
-      <p>Created on <%= booking.created_at.strftime('%B %d, %Y') %>
+      <p>Created on <%= booking.created_at.strftime('%B %d, %Y %I %M %p') %>
     </div>
   <% end %>
 <% else %>
   <p>No bookings found.</p>
 <% end %>
-
 
 <%= link_to 'Book another place', places_path %>
