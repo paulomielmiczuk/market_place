@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[update]
+
   def index
     @bookings = Booking.all
   end
@@ -27,11 +28,10 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      render json: { status: 'success' }, status: :ok
+      redirect_to requests_path, notice: 'Booking confirmed successfully.'
     else
-      render json: { status: 'error' }, status: :unprocessable_entity
+      redirect_to requests_path, alert: 'Failed to confirm booking.'
     end
   end
 

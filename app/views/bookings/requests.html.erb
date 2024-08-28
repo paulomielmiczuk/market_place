@@ -2,19 +2,18 @@
 
 <% if @bookings.any? %>
   <% @bookings.each do |booking| %>
-  <div data-controller="toggle_controller" data-booking-url="<%= booking_path(toggle_controller) %>">
-    <p>Place: <%= booking.place.name %></p>
-    <p>User: <%= booking.user.email %></p>
-    <p>Check-in: <%= booking.checkin %></p>
-    <p>Check-out: <%= booking.checkout %></p>
+    <div>
+      <p>Place: <%= booking.place.name %></p>
+      <p>User: <%= booking.user.email %></p>
+      <p>Check-in: <%= booking.checkin %></p>
+      <p>Check-out: <%= booking.checkout %></p>
 
-      <div data-booking-target="status">
-        <button data-action="click->booking#update" class="btn btn-primary">
-          Confirm Booking
-        </button>
-      </div>
-  </div>
+      <%= form_for booking, url: booking_path(booking), method: :patch do |f| %>
+        <%= f.hidden_field :status, value: true %>
+        <%= f.submit "Confirm Booking", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   <% end %>
+<% else %>
+  <p>No pending booking requests.</p>
 <% end %>
-
-<!-- app/views/bookings/requests.html.erb -->
