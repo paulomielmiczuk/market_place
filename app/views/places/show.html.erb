@@ -3,7 +3,7 @@
 <p>Location: <%= @place.location %></p>
 <p>Description: <%= @place.description %></p>
 <p>Price: <%= @place.price %></p>
-<p>Host: <%= @place.user.email %></p>
+<p>Host: <%= @place.user.name %></p>
 <p>Rating: <%= @place.rating %></p>
 
 <%= link_to "Book place", new_place_booking_path(@place) %>
