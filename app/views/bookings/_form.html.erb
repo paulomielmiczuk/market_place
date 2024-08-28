@@ -1,5 +1,6 @@
 <%= simple_form_for [@place, @booking] do |f| %>
-  <%= f.input :checkin %>
-  <%= f.input :checkout %>
+  <%= f.input :checkin, as: :string, input_html: {data: {controller: "flatpickr"}} %>
+  <%= f.input :checkout, as: :string, input_html: {data: {controller: "flatpickr"}} %>
   <%= f.submit "Book", class: 'btn btn-primary' %>
+  
 <% end %>

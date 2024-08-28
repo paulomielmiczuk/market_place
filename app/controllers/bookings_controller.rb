@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = true
     if @booking.save
-      redirect_to bookings_path
+      redirect_to requests_path
     else
       render 'new', status: :unprocessable_entity
     end
