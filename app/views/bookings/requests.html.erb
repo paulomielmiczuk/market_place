@@ -1,19 +1,29 @@
 <h1>Booking Requests</h1>
 
-<% if @bookings.any? %>
-  <% @bookings.each do |booking| %>
-    <div>
-      <p>Place: <%= booking.place.name %></p>
-      <p>User: <%= booking.user.email %></p>
-      <p>Check-in: <%= booking.checkin %></p>
-      <p>Check-out: <%= booking.checkout %></p>
-
-      <%= form_for booking, url: booking_path(booking), method: :patch do |f| %>
-        <%= f.hidden_field :status, value: true %>
-        <%= f.submit "Confirm Booking", class: 'btn btn-primary' %>
-      <% end %>
-    </div>
+<div class="flexbox">
+  <% if @bookings.any? %>
+    <% @bookings.each do |booking| %>
+      <div>
+        <div class="card-trip">
+         <%= cl_image_tag(booking.place.photo.key, crop: :fill) %>
+         <div class="card-trip-infos">
+            <div>
+             <h2><%= booking.place.name %></h2>
+             <p>Check-in: <%= booking.checkin %></p>
+             <p>Check-out: <%= booking.checkout %></p>
+            </div>
+            <h2 class="card-trip-pricing">$<%= booking.place.price %></h2>
+          </div>
+          <%= form_for booking, url: booking_path(booking), method: :patch do |f| %>
+            <%= f.hidden_field :status, value: true %>
+            <%= f.submit "Confirm Booking", class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No bookings found.</p>
   <% end %>
-<% else %>
-  <p>No pending booking requests.</p>
-<% end %>
+</div >
+
+<%= link_to 'Book another place', places_path %>

@@ -1,14 +1,22 @@
 <h1>All places</h1>
 
 <% if @places.any? %>
-  <% @places.each do |place| %>
-    <p>Name: <%= place.name %></p>
-    <p>Location: <%= place.location %></p>
-    <p>Description: <%= place.description %></p>
-    <p>Price: <%= place.price %></p>
-    <p>Rating: <%= place.rating %></p>
-    <%= link_to "View place", place_path(place) %>
-  <% end %>
+  <div class="flexbox">
+    <% @places.each do |place| %>
+      <div class="card-trip">
+        <%= cl_image_tag(place.photo.key, crop: :fill) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= place.name %></h2>
+            <p>Rating: <%= place.rating %></p>
+            <p><%= link_to "View", place_path(place) %></p>
+          </div>
+          <h2 class="card-trip-pricing">$<%= place.price %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 <% else %>
   <p>Sorry, no places found!</p>
 <% end %>

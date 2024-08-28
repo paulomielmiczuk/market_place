@@ -3,11 +3,10 @@
 <p>Location: <%= @place.location %></p>
 <p>Description: <%= @place.description %></p>
 <p>Price: <%= @place.price %></p>
-<p>Host: <%= @place.user.email %></p>
+<p>Host: <%= @place.user.name %></p>
 <p>Rating: <%= @place.rating %></p>
 
 <%= link_to "Book place", new_place_booking_path(@place) %>
 <%= link_to "Edit place", edit_place_path(@place) %>
-<%# link_to "Remove place", place_path(@place), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-<%= link_to 'Back', places_path %>
 <%= link_to "Remove place", place_path(@place), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+<%= link_to 'Back', places_path %>

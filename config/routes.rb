@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
-  resources :bookings, only: %i[update index]
-
+  resources :bookings, only: %i[update request index]
   get "/requests", to: "bookings#requests", as: "requests"
-
 end
