@@ -1,16 +1,30 @@
-<h1>Bookings</h1>
+<h1 class='mb-3'>My Bookings</h1>
 
-<% if @bookings.any? %>
-  <% @bookings.each do |booking| %>
-    <div>
-      <p>Booking #<%= booking.id %>:</p>
-      <p>Check-in: <%= booking.checkin %></p>
-      <p>Check-out: <%= booking.checkout %></p>
-      <p>Created on <%= booking.created_at.strftime('%B %d, %Y %I %M %p') %>
-    </div>
+<div class="flexbox">
+  <% if @bookings.any? %>
+    <% @bookings.each do |booking| %>
+      <div class="card-trip">
+        <%= cl_image_tag(booking.place.photo.key, crop: :fill) %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= booking.place.name %></h2>
+            <p>Check-in: <%= booking.checkin %></p>
+            <p>Check-out: <%= booking.checkout %></p>
+            <div class="price">
+              <%= number_to_currency(booking.total_price) %>
+            </div>
+            <div class="buttons mt-3">
+              <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger rounded' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No bookings found.</p>
   <% end %>
-<% else %>
-  <p>No bookings found.</p>
-<% end %>
+</div>
 
-<%= link_to 'Book another place', places_path %>
+<div class="text-center mt-4">
+  <%= link_to 'Book another place', places_path, class: 'btn btn-outline-primary btn-book-another-place' %>
+</div>
