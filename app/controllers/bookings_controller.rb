@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.place = @place
     @booking.user = current_user
-    @booking.status = true
+    @booking.status = false
     if @booking.save
       redirect_to requests_path
     else
@@ -29,6 +29,15 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy!
     redirect_to requests_path(@booking.place)
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    respond_to do |format|
+      if @booking.update(status: true)
+        format.html { redirect_to requests_path }
+      end
+    end
   end
 
   private
