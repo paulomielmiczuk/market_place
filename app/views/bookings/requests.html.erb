@@ -12,7 +12,8 @@
              <p>Check-in: <%= booking.checkin %></p>
              <p>Check-out: <%= booking.checkout %></p>
             </div>
-            <h2 class="card-trip-pricing">$<%= booking.place.price %></h2>
+            <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger rounded' %>
+
           </div>
         </div>
       </div>
@@ -22,4 +23,4 @@
   <% end %>
 </div >
 
-<%= link_to 'Book another place', places_path %>
+<%= link_to 'Book another place', places_path, class: 'btn btn-outline-primary mt-4' %>
