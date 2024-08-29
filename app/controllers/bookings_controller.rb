@@ -15,14 +15,15 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = false
     if @booking.save
-      redirect_to requests_path
+      redirect_to bookings_path
     else
       render 'new', status: :unprocessable_entity
     end
   end
 
   def requests
-    @bookings = Booking.where(user: current_user)
+    places = Place.where(user: current_user)
+    @bookings = Booking.where(place: places)
   end
 
   def destroy

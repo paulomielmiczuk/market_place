@@ -1,4 +1,4 @@
-<h1>Booking Requests</h1>
+<h1 class='mb-3'>Booking Requests</h1>
 
 <div class="flexbox">
   <% if @bookings.any? %>
@@ -31,5 +31,5 @@
 </div>
 
 <div class="text-center mt-4">
-  <%= link_to 'Book another place', places_path, class: 'btn btn-outline-primary btn-book-another-place' %>
+  <%= link_to 'Back to all places', places_path, class: 'btn btn-outline-primary btn-book-another-place' %>
 </div>

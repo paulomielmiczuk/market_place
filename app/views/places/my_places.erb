@@ -1,4 +1,13 @@
-<h1>My Places</h1>
+<div class='d-flex justify-content-between'>
+<div>
+  <h1>My Places</h1>
+</div>
+<div>
+  <%= link_to 'Add new place', new_place_path, class: 'btn btn-primary rounded' %>
+</div>
+</div>
+
+
 <div class="flexbox">
   <% if @my_places.any? %>
     <% @my_places.each do |place| %>
@@ -23,4 +32,6 @@
   <% end %>
 </div >
 
-<p class='mt-4'><%= link_to 'All places', places_path, class: 'btn btn-sm btn-outline-primary rounded' %></p>
+<div class="text-center mt-4">
+  <%= link_to 'All places', places_path, class: 'btn btn-outline-primary rounded' %>
+</div>
