@@ -22,6 +22,7 @@ class PlacesController < ApplicationController
       lng: @place.longitude,
       marker_html: render_to_string(partial: "marker")
     }]
+    @booking = Booking.new
   end
 
   def new
