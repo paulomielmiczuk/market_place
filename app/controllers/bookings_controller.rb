@@ -29,7 +29,13 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy!
-    redirect_to requests_path(@booking.place)
+    redirect_to bookings_path
+  end
+
+  def destroy_request
+    @booking = Booking.find(params[:id])
+    @booking.destroy!
+    redirect_to requests_path
   end
 
   def update

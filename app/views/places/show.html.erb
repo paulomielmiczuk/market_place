@@ -6,10 +6,12 @@
       </div>
     </div>
 
-    <div class='d-flex my-3 justify-content-between'>
+    <div class='d-flex mb-3 justify-content-between mt-3'>
       <div>
         <div class='d-flex align-items-baseline'>
-          <%= link_to "Book place", new_place_booking_path(@place), class: 'btn btn-primary' %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Book place
+          </button>
           <p class='ms-3 h5 fw-semibold'>$<%= @place.price %> / per night</p>
         </div>
       </div>
@@ -29,5 +31,20 @@
     data-controller="map"
     data-map-markers-value="<%= @marker.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Select your dates</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'bookings/form', booking: @booking %>
+      </div>
+    </div>
   </div>
 </div>
