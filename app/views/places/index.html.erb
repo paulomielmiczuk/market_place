@@ -15,7 +15,7 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= place.name %></h2>
-            <p>Rating: <%= place.rating %></p>
+            <p><%= '✰' * (place.rating || 0) %></p>
             <p><%= link_to "View", place_path(place) %></p>
           </div>
           <h2 class="card-trip-pricing">$<%= place.price %></h2>
