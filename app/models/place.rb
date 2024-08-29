@@ -10,4 +10,8 @@ class Place < ApplicationRecord
   validates :name, :location, :description, :price, presence: true
   validates :name, uniqueness: true
   validates :rating, inclusion: { in: 0..5 }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_location,
+  against: %I[name location], using: { tsearch: { prefix: true } }
 end

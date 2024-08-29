@@ -3,6 +3,10 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+    if params[:query].present?
+      @places = @places.search_by_name_and_location(params[:query])
+    end
+
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
