@@ -8,6 +8,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: places_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "search form-control",
+            placeholder: "Type something..."
+        %>
+      <%= submit_tag "Search", name: "", class: "search-btn btn btn-primary" %>
+      <% end %>
+    </div>
+    </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
