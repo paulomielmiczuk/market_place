@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = Booking.joins(:place).where.not(places: { user_id: current_user.id })
   end
 
   def new
