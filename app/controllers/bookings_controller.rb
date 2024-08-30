@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = Booking.joins(:place).where.not(places: { user_id: current_user.id })
   end
 
   def new
@@ -29,13 +29,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy!
-    redirect_to bookings_path
-  end
-
-  def destroy_request
-    @booking = Booking.find(params[:id])
-    @booking.destroy!
-    redirect_to requests_path
+    redirect_to request.referer || places_path
   end
 
   def update

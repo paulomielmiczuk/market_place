@@ -26,7 +26,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", places_path, class: "nav-link" %>
+            <div class='nav-link'>
+              <%= current_user.name %>
+            </div>
           </li>
           <%# <li class="nav-item"> %>
             <%# link_to "Messages", "#", class: "nav-link" %>
