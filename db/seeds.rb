@@ -6,11 +6,35 @@ User.destroy_all
 puts "creating users..."
 
 user1 = User.create!(email: "darth@gmail.com", password: "123456", name: 'Darth Vader')
+profile1 = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgHO9j142XnFacnmBLbHqvsjdNbSKop-zDQQ&s")
+user1.photo.attach(io: profile1, filename: "vader.png", content_type: "image/png")
+user1.save
+
 user2 = User.create!(email: "han@gmail.com", password: "123456", name: 'Han Solo')
+profile2 = URI.open("https://i.pinimg.com/474x/2a/7b/58/2a7b58818ee38c6cf317c55f0ab1ae3a.jpg")
+user2.photo.attach(io: profile2, filename: "han.png", content_type: "image/png")
+user2.save
+
 user3 = User.create!(email: "luke@gmail.com", password: "123456", name: 'Luke Skywalker')
+profile3 = URI.open("https://i.pinimg.com/736x/12/f9/de/12f9de297130c941c46382b21d0478f5.jpg")
+user3.photo.attach(io: profile3, filename: "luke.png", content_type: "image/png")
+user3.save
+
 user4 = User.create!(email: "yoda@gmail.com", password: "123456", name: 'Master Yoda')
+profile4 = URI.open("https://i.guim.co.uk/img/media/4ca0796c164958bbd5f8b2f47ec17c100ad44178/0_134_3500_2100/master/3500.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=58087aa38136cae76185d4484b39a2fc")
+user4.photo.attach(io: profile4, filename: "yoda.png", content_type: "image/png")
+user4.save
+
 user5 = User.create!(email: "r2d2@gmail.com", password: "123456", name: 'R2-D2')
+profile5 = URI.open("https://lumiere-a.akamaihd.net/v1/images/r2-d2-main_f315b094.jpeg?region=431%2C0%2C536%2C536")
+user5.photo.attach(io: profile5, filename: "r2d2.png", content_type: "image/png")
+user5.save
+
 user6 = User.create!(email: "c3po@gmail.com", password: "123456", name: 'C-3PO')
+profile6 = URI.open("https://i.guim.co.uk/img/media/4ca0796c164958bbd5f8b2f47ec17c100ad44178/0_134_3500_2100/master/3500.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=58087aa38136cae76185d4484b39a2fc")
+user6.photo.attach(io: profile6, filename: "c3po.png", content_type: "image/png")
+user6.save
+
 User.create!(email: "paulo@gmail.com", password: "123456", name: 'Paulo Mielmiczuk')
 User.create!(email: "tomas@gmail.com", password: "123456", name: 'Tomas Vannucchi')
 User.create!(email: "thaila@gmail.com", password: "123456", name: 'Thaila Esteves')
