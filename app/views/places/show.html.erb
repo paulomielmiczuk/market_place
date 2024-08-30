@@ -27,7 +27,7 @@
       <%= link_to 'Back to places', places_path, class: 'btn btn-sm btn-outline-primary rounded' %>
   </div>
 
-  <div style="width: 40%; height: 700px;"
+  <div style="width: 1200px; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @marker.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
