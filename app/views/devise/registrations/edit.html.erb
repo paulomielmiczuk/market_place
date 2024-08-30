@@ -14,7 +14,8 @@
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p class="text-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
-
+            <%= f.input :photo, as: :file,
+                        required: false %>
             <%= f.input :password,
                         hint: "Leave it blank if you don't want to change it",
                         required: false,

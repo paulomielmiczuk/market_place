@@ -14,7 +14,10 @@
               <%= number_to_currency(booking.total_price) %>
             </div>
             <div class="buttons mt-3">
-              <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger rounded' %>
+              <% if booking.status %>
+                <%= link_to "Confirmed!", "#", class: 'btn btn-sm btn-outline-primary rounded disabled' %>
+              <% end  %>
+            <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-danger rounded' %>
             </div>
           </div>
         </div>
