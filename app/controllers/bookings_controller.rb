@@ -32,11 +32,11 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
-  def destroy_request
-    @booking = Booking.find(params[:id])
-    @booking.destroy!
-    redirect_to requests_path
-  end
+  # def destroy_request
+  #   @request = Booking.find(params[:id])
+  #   @request.destroy!
+  #   redirect_to requests_path
+  # end
 
   def update
     @booking = Booking.find(params[:id])
